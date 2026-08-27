@@ -365,15 +365,7 @@ app.get("/api/ai/report", async (req,res) => {
 
 app.get("/api/health", (req,res)=>res.json({ok:true,service:"intern-ops-backend",aiEnabled:Boolean(process.env.OPENAI_API_KEY)}));
 
-app.get("/", (req,res) => {
-  if (!getSessionUser(req)) return res.redirect("/login.html");
-  res.sendFile(path.join(__dirname,"public","index.html"));
-});
-app.use((req,res,next) => {
-  if (req.path.startsWith("/api/")) return res.status(404).json({error:"Not found."});
-  if (!getSessionUser(req)) return res.redirect("/login.html");
-  res.sendFile(path.join(__dirname,"public","index.html"));
-});
+
 
 // Railway/public web routing
 app.get("/", (req, res) => {
