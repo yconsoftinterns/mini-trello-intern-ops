@@ -1,0 +1,760 @@
+
+/* ========================================
+   1. GENERAL SETTINGS
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #172033;
+}
+
+
+/* ========================================
+   2. HEADER
+======================================== */
+
+.topbar {
+    background-color: #111827;
+    color: white;
+
+    padding: 30px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.header-content h1 {
+    font-size: 35px;
+    margin: 5px 0;
+}
+
+.brand {
+    color: #818cf8;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.subtitle {
+    color: #c7d2fe;
+    margin-top: 5px;
+}
+
+
+/* ========================================
+   3. HEADER BUTTONS
+======================================== */
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.btn.primary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: #3730a3;
+}
+
+.btn.secondary {
+    background-color: #eef2ff;
+    color: #3730a3;
+}
+
+
+/* ========================================
+   4. MAIN CONTAINER
+======================================== */
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+
+    margin: 30px auto;
+}
+
+
+/* ========================================
+   5. STATISTICS
+======================================== */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: white;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card p {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.stat-card h2 {
+    font-size: 28px;
+
+    margin: 8px 0;
+}
+
+.stat-card span {
+    color: #6b7280;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   6. GENERAL PANELS
+======================================== */
+
+.panel {
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 22px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ========================================
+   7. SECTION TITLES
+======================================== */
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.section-title h2 {
+    margin-top: 5px;
+
+    font-size: 21px;
+}
+
+.small-title {
+    color: #6366f1;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+
+/* ========================================
+   8. AI ATTENTION SECTION
+======================================== */
+
+.badge {
+    background-color: #dcfce7;
+
+    color: #15803d;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.empty {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    padding: 15px 0;
+}
+
+
+/* ========================================
+   9. FILTERS
+======================================== */
+
+.filters {
+    display: flex;
+
+    gap: 15px;
+
+    align-items: end;
+
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    flex: 1;
+
+    min-width: 180px;
+}
+
+.filter-item label {
+    display: block;
+
+    font-size: 13px;
+
+    color: #6b7280;
+
+    margin-bottom: 6px;
+}
+
+.filter-item input,
+.filter-item select {
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+    border-color: #4f46e5;
+}
+
+
+/* ========================================
+   10. TRELLO BOARD
+======================================== */
+
+.board {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+/* ========================================
+   11. BOARD COLUMNS
+======================================== */
+
+.column {
+    background-color: #e9edf4;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    min-height: 350px;
+
+    border: 1px solid #dfe4ec;
+}
+
+.column-header {
+    padding-bottom: 15px;
+}
+
+.column-header > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.column-header h2 {
+    font-size: 17px;
+}
+
+
+/* ========================================
+   12. TASK COUNT
+======================================== */
+
+.count {
+    background-color: white;
+
+    color: #6b7280;
+
+    padding: 4px 8px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   13. TASK LIST
+======================================== */
+
+.task-list {
+    min-height: 80px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* ========================================
+   14. TASK CARD
+======================================== */
+
+.task-card {
+    background-color: white;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    cursor: grab;
+
+    transition: 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.task-card:active {
+    cursor: grabbing;
+}
+
+
+/* ========================================
+   15. TASK TITLE
+======================================== */
+
+.task-title {
+    font-size: 15px;
+
+    margin-bottom: 8px;
+}
+
+
+/* ========================================
+   16. TASK DESCRIPTION
+======================================== */
+
+.task-description {
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    margin-bottom: 10px;
+}
+
+
+/* ========================================
+   17. TASK INFORMATION
+======================================== */
+
+.task-meta {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    font-size: 11px;
+
+    color: #6b7280;
+}
+
+
+/* ========================================
+   18. PRIORITY
+======================================== */
+
+.priority {
+    display: inline-block;
+
+    padding: 4px 7px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    margin-bottom: 8px;
+}
+
+.priority.high {
+    background-color: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.priority.medium {
+    background-color: #fef3c7;
+
+    color: #92400e;
+}
+
+.priority.low {
+    background-color: #dcfce7;
+
+    color: #166534;
+}
+
+
+/* ========================================
+   19. ADD CARD BUTTON
+======================================== */
+
+.add-card {
+    width: 100%;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 15px 5px 5px;
+
+    text-align: left;
+
+    color: #6b7280;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.add-card:hover {
+    color: #4f46e5;
+}
+
+
+/* ========================================
+   20. PERFORMANCE SECTION
+======================================== */
+
+.performance-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.person-score {
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    background-color: #fafbfc;
+}
+
+.person-score h3 {
+    margin-bottom: 4px;
+
+    font-size: 16px;
+}
+
+.person-score small {
+    color: #6b7280;
+}
+
+.score {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    background-color: #e0e7ff;
+
+    color: #3730a3;
+
+    font-weight: bold;
+}
+
+
+/* ========================================
+   21. RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 950px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .performance-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ========================================
+   22. TABLET / MOBILE
+======================================== */
+
+@media (max-width: 750px) {
+
+    .topbar {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .board {
+        grid-template-columns: 1fr;
+    }
+
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ========================================
+   23. SMALL PHONE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .header-content h1 {
+        font-size: 27px;
+    }
+
+    .filters {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .filter-item {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   TASK MODAL
+======================================== */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+}
+
+
+/* Show modal */
+
+.modal.show {
+    display: flex;
+}
+
+
+/* Modal box */
+
+.modal-content {
+    background-color: white;
+
+    width: 90%;
+
+    max-width: 500px;
+
+    padding: 25px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Modal title */
+
+.modal-content h2 {
+    margin-bottom: 20px;
+}
+
+
+/* Form */
+
+#taskForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* Labels */
+
+#taskForm label {
+    font-size: 13px;
+
+    font-weight: bold;
+
+    color: #374151;
+}
+
+
+/* Inputs */
+
+#taskForm input,
+#taskForm textarea,
+#taskForm select {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    outline: none;
+}
+
+
+/* Textarea */
+
+#taskForm textarea {
+
+    min-height: 80px;
+
+    resize: vertical;
+}
+
+
+/* Focus */
+
+#taskForm input:focus,
+#taskForm textarea:focus,
+#taskForm select:focus {
+
+    border-color: #4f46e5;
+}
+
+
+/* Buttons */
+
+.form-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.ai-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}.ai-btn{background:#111827;color:#fff;box-shadow:0 4px 12px rgba(17,24,39,.14)}.ai-btn:hover{background:#1f2937;transform:translateY(-1px)}.ai-btn:disabled{opacity:.7;cursor:wait;transform:none}.ai-status{font-size:11px;font-weight:700;padding:6px 9px;border-radius:999px;background:#f3f4f6;color:#6b7280}.ai-status.ai-on{background:#dcfce7;color:#15803d}.ai-status.ai-off{background:#f3f4f6;color:#6b7280}.ai-status.ai-loading{background:#e0e7ff;color:#3730a3}.ai-status.ai-error{background:#fee2e2;color:#b91c1c}.ai-error-box{padding:14px;border-radius:10px;background:#fee2e2;color:#991b1b;border:1px solid #fecaca;line-height:1.55}
+.modal-content{max-height:90vh;overflow-y:auto}.modal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:22px}.modal-header h2{margin:3px 0 5px}.modal-subtitle{color:#6b7280;font-size:13px;line-height:1.45}.modal-x{width:34px;height:34px;border:0;border-radius:8px;background:#f3f4f6;color:#4b5563;font-size:22px;cursor:pointer}.modal-x:hover{background:#e5e7eb}.task-form{display:flex;flex-direction:column;gap:18px}.form-section{padding:16px;border:1px solid #e5e7eb;border-radius:12px;background:#fafbfc}.form-section h3{font-size:13px;margin-bottom:14px;color:#374151}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.form-field{min-width:0}.form-field.full{margin-top:14px}.form-field label{display:block;font-size:12px;font-weight:700;color:#374151;margin-bottom:6px}.form-field label span{color:#dc2626}.form-field input,.form-field textarea,.form-field select{width:100%;padding:11px 12px;border:1px solid #d1d5db;border-radius:8px;background:#fff;color:#172033;outline:none;font:inherit}.form-field textarea{min-height:92px;resize:vertical}.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+@media(max-width:650px){.ai-actions{justify-content:flex-start}.form-row{grid-template-columns:1fr}.modal-content{width:94%;padding:20px}}
+
+
+/* ========================================
+   LOGIN
+======================================== */
+.login-page{min-height:100vh;display:grid;place-items:center;background:linear-gradient(135deg,#111827 0%,#1f2937 48%,#4f46e5 140%);padding:24px}.login-shell{width:100%;max-width:430px}.login-card{background:#fff;border-radius:20px;padding:36px;box-shadow:0 24px 70px rgba(0,0,0,.25)}.login-brand{color:#4f46e5;font-size:12px;font-weight:800;letter-spacing:2px;margin-bottom:10px}.login-card h1{font-size:30px;color:#111827;margin-bottom:7px}.login-subtitle{color:#6b7280;margin-bottom:26px}.login-form{display:flex;flex-direction:column;gap:16px}.login-form .form-field{display:flex;flex-direction:column}.login-form label{font-size:13px;font-weight:700;color:#374151;margin-bottom:7px}.login-form input{width:100%;padding:13px 14px;border:1px solid #d1d5db;border-radius:10px;font:inherit;outline:none}.login-form input:focus{border-color:#4f46e5;box-shadow:0 0 0 3px rgba(79,70,229,.1)}.login-btn{width:100%;padding:13px}.login-btn:disabled{opacity:.7;cursor:wait}.login-error{padding:11px 12px;border-radius:9px;background:#fee2e2;color:#991b1b;border:1px solid #fecaca;font-size:13px;line-height:1.45}.login-note{margin-top:18px;text-align:center;font-size:11px;color:#9ca3af}.logout-btn{background:#fff;color:#374151;border:1px solid #d1d5db}.logout-btn:hover{background:#f3f4f6}@media(max-width:650px){.login-card{padding:28px 22px}.topbar .header-buttons{flex-wrap:wrap}}
+
+.ai-actions { display:flex; align-items:center; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
+.ai-report-btn { white-space:nowrap; }
+@media (max-width: 720px) {
+  .ai-actions { justify-content:flex-start; }
+  .ai-report-btn, .ai-btn { width:100%; }
+}
+
+/* Cleaner intern + progress forms */
+.clean-form{display:flex;flex-direction:column;gap:18px}.clean-form .form-section{margin:0}.clean-form .form-field + .form-field{margin-top:14px}.field-help{display:block;margin-top:6px;color:#9ca3af;font-size:11px;line-height:1.4}.clean-form .form-buttons{margin-top:0;padding-top:2px}.clean-form input::placeholder,.clean-form textarea::placeholder{color:#9ca3af}
+@media(max-width:650px){.clean-form .form-buttons{flex-direction:column-reverse}.clean-form .form-buttons .btn{width:100%}.modal-header{gap:10px}.modal-subtitle{max-width:290px}}

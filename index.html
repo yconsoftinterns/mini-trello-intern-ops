@@ -1,0 +1,332 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yconsoft Intern Ops Hub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topbar">
+
+        <div class="header-content">
+            <p class="brand">YCONSOFT</p>
+
+            <h1>Intern Ops Hub</h1>
+
+            <p class="subtitle">
+                Manage interns, tasks and deadlines in one place.
+            </p>
+        </div>
+
+        <div class="header-buttons">
+            <button id="addInternBtn" class="btn secondary">
+                + Intern
+            </button>
+
+            <button id="addTaskBtn" class="btn primary">
+                + Task
+            </button>
+
+            <button id="logoutBtn" class="btn logout-btn" type="button">
+                Log out
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- STATISTICS -->
+        <section class="stats">
+
+            <div class="stat-card">
+                <p>Interns</p>
+                <h2 id="internCount">0</h2>
+                <span>People in the Hub</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Total Tasks</p>
+                <h2 id="taskCount">0</h2>
+                <span>All assigned tasks</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Completed</p>
+                <h2 id="completedCount">0</h2>
+                <span>Finished tasks</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Team Score</p>
+                <h2 id="teamScore">0/100</h2>
+                <span>Overall performance</span>
+            </div>
+
+        </section>
+
+
+        <!-- AI PERFORMANCE SECTION -->
+        <section class="panel attention-section">
+
+            <div class="section-title">
+
+                <div>
+                    <p class="small-title">
+                        AI PERFORMANCE CHECK
+                    </p>
+
+                    <h2>
+                        What needs attention?
+                    </h2>
+                </div>
+
+                <div class="ai-actions">
+                    <span id="aiStatus" class="ai-status">Ready</span>
+                    <button id="aiInsightsBtn" class="btn ai-btn" type="button">✨ AI Performance Insights</button>
+                    <button id="aiReportBtn" class="btn secondary ai-report-btn" type="button">⬇ Download AI Report</button>
+                    <span id="hubHealth" class="badge">Healthy</span>
+                </div>
+
+            </div>
+
+            <div id="insightsList">
+                <p class="empty">
+                    No attention items yet.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- FILTERS -->
+        <section class="panel filters">
+
+            <div class="filter-item">
+
+                <label for="internFilter">
+                    Intern
+                </label>
+
+                <select id="internFilter">
+
+                    <option value="all">
+                        Everyone
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-item">
+
+                <label for="priorityFilter">
+                    Priority
+                </label>
+
+                <select id="priorityFilter">
+
+                    <option value="all">
+                        All priorities
+                    </option>
+
+                    <option value="high">
+                        High
+                    </option>
+
+                    <option value="medium">
+                        Medium
+                    </option>
+
+                    <option value="low">
+                        Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="filter-item search">
+
+                <label for="searchInput">
+                    Search
+                </label>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search tasks..."
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- TRELLO BOARD -->
+        <section class="board">
+
+
+            <!-- TO DO -->
+            <div class="column" data-status="todo">
+
+                <div class="column-header">
+
+                    <div>
+                        <h2>To Do</h2>
+
+                        <span
+                            class="count"
+                            data-count="todo"
+                        >
+                            0
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="todoList"
+                    class="task-list"
+                >
+                </div>
+
+
+                <button
+                    class="add-card"
+                    data-add-status="todo"
+                >
+                    + Add a card
+                </button>
+
+            </div>
+
+
+
+            <!-- IN PROGRESS -->
+            <div class="column" data-status="progress">
+
+                <div class="column-header">
+
+                    <div>
+                        <h2>In Progress</h2>
+
+                        <span
+                            class="count"
+                            data-count="progress"
+                        >
+                            0
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="progressList"
+                    class="task-list"
+                >
+                </div>
+
+
+                <button
+                    class="add-card"
+                    data-add-status="progress"
+                >
+                    + Add a card
+                </button>
+
+            </div>
+
+
+
+            <!-- DONE -->
+            <div class="column" data-status="done">
+
+                <div class="column-header">
+
+                    <div>
+                        <h2>Done</h2>
+
+                        <span
+                            class="count"
+                            data-count="done"
+                        >
+                            0
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="doneList"
+                    class="task-list"
+                >
+                </div>
+
+
+                <button
+                    class="add-card"
+                    data-add-status="done"
+                >
+                    + Add a card
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERFORMANCE -->
+        <section class="panel performance">
+
+            <div class="section-title">
+
+                <div>
+
+                    <p class="small-title">
+                        TEAM SCORE
+                    </p>
+
+                    <h2>
+                        Intern Performance
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="performanceGrid"
+                class="performance-grid"
+            >
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
+
