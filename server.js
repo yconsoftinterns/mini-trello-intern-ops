@@ -375,4 +375,38 @@ app.use((req,res,next) => {
   res.sendFile(path.join(__dirname,"public","index.html"));
 });
 
-app.listen(PORT, ()=>console.log(`Intern Ops Hub running at http://localhost:${PORT}`));
+// Railway/public web routing
+app.get("/", (req, res) => {
+  const user = getSessionUser(req);
+
+  if (!user) {
+    return res.sendFile(path.join(__dirname, "public", "login.html"));
+  }
+
+  return res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Login page must always be accessible
+app.get("/login.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "login.html"));
+});
+
+// Protect all other browser pages
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/")) {
+    return res.status(404).json({ error: "Not found." });
+  }
+
+  const user = getSessionUser(req);
+
+  if (!user) {
+    return res.sendFile(path.join(__dirname, "public", "login.html"));
+  }
+
+  return res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Start server
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Intern Ops Hub running on port ${PORT}`);
+});
