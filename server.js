@@ -365,40 +365,43 @@ app.get("/api/ai/report", async (req,res) => {
 
 app.get("/api/health", (req,res)=>res.json({ok:true,service:"intern-ops-backend",aiEnabled:Boolean(process.env.OPENAI_API_KEY)}));
 
+// Static assets are served after the API routes so authentication can protect the dashboard page.
+app.use(express.static(path.join(__dirname, "public"), { index: false }));
 
-
-// Railway/public web routing
-app.get("/", (req, res) => {
-  const user = getSessionUser(req);
-
-  if (!user) {
-    return res.sendFile(path.join(__dirname, "public", "login.html"));
-  }
-
-  return res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-// Login page must always be accessible
+// Public login page. Never redirect this route.
 app.get("/login.html", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
-// Protect all other browser pages
+// Dashboard entry point. Unauthenticated visitors receive the login page directly
+// instead of being redirected, which prevents redirect loops behind Railway.
+app.get("/", (req, res) => {
+  if (!getSessionUser(req)) {
+    return res.sendFile(path.join(__dirname, "public", "login.html"));
+  }
+  return res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Also protect direct navigation to index.html.
+app.get("/index.html", (req, res) => {
+  if (!getSessionUser(req)) {
+    return res.sendFile(path.join(__dirname, "public", "login.html"));
+  }
+  return res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Unknown API routes return JSON instead of falling through to the dashboard.
 app.use((req, res, next) => {
   if (req.path.startsWith("/api/")) {
     return res.status(404).json({ error: "Not found." });
   }
-
-  const user = getSessionUser(req);
-
-  if (!user) {
-    return res.sendFile(path.join(__dirname, "public", "login.html"));
-  }
-
-  return res.sendFile(path.join(__dirname, "public", "index.html"));
+  next();
 });
 
-// Start server
+app.use((req, res) => {
+  res.status(404).send("Not found.");
+});
+
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Intern Ops Hub running on port ${PORT}`);
 });
