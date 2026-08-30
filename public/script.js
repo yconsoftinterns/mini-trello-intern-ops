@@ -435,3 +435,21 @@ loadData().catch(err => {
     console.error(err);
     insightsList.innerHTML = `<p class="empty">Backend unavailable. Start the server with <code>npm install</code> then <code>npm start</code>.</p>`;
 });
+// LOGOUT
+logoutBtn?.addEventListener("click", async () => {
+    try {
+        logoutBtn.disabled = true;
+        logoutBtn.textContent = "Logging out...";
+
+        await fetch("/api/auth/logout", {
+            method: "POST",
+            credentials: "include"
+        });
+
+    } catch (error) {
+        console.error("Logout error:", error);
+    } finally {
+        // Always return to the login page
+        window.location.href = "/login.html";
+    }
+});
